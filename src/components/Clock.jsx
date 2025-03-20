@@ -8,7 +8,7 @@ const Clock = () => {
       setTime(new Date());
     }, 1000);
 
-    // Sprzątanie po odmontowaniu komponentu
+
     return () => clearInterval(timer);
   }, []);
 

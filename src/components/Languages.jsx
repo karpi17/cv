@@ -1,12 +1,11 @@
 import React from 'react';
 import { languages } from '../data/languages';
 import { FaLanguage } from 'react-icons/fa';
-import { Reveal } from 'react-awesome-reveal';
-import { fadeIn } from 'react-awesome-reveal';
-
+import { Reveal, Fade } from 'react-awesome-reveal';
 const Languages = () => {
   return (
-    <Reveal keyframes={fadeIn} triggerOnce>
+<Reveal triggerOnce>
+<Fade direction="up" duration={500}>
       <div className="mt-5">
         <h2><FaLanguage className="me-2" />Języki</h2>
         <div className="card">
@@ -21,6 +20,7 @@ const Languages = () => {
           </div>
         </div>
       </div>
+      </Fade>
     </Reveal>
   );
 };

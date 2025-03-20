@@ -1,12 +1,11 @@
 import React from 'react';
 import { education } from '../data/Education';
 import { FaGraduationCap } from 'react-icons/fa';
-import { Reveal } from 'react-awesome-reveal';
-import { fadeIn } from 'react-awesome-reveal';
-
+import { Reveal, Fade } from 'react-awesome-reveal';
 const Education = () => {
   return (
-    <Reveal keyframes={fadeIn} triggerOnce>
+    <Reveal triggerOnce>
+      <Fade direction="up" duration={500}>
       <div className="mt-5">
         <h2><FaGraduationCap className="me-2" />Wykształcenie</h2>
         {education.map((edu) => (
@@ -20,6 +19,7 @@ const Education = () => {
           </div>
         ))}
       </div>
+      </Fade>
     </Reveal>
   );
 };

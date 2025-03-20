@@ -1,12 +1,11 @@
 import React from 'react';
 import { certificates } from '../data/certificates';
 import { FaCertificate } from 'react-icons/fa';
-import { Reveal } from 'react-awesome-reveal';
-import { fadeIn } from 'react-awesome-reveal';
-
+import { Reveal, Fade } from 'react-awesome-reveal';
 const Certificates = () => {
   return (
-    <Reveal keyframes={fadeIn} triggerOnce>
+    <Reveal triggerOnce>
+      <Fade direction="up" duration={500}>
       <div className="mt-5">
         <h2><FaCertificate className="me-2" />Certyfikaty</h2>
         {certificates.map((cert) => (
@@ -19,6 +18,7 @@ const Certificates = () => {
           </div>
         ))}
       </div>
+      </Fade>
     </Reveal>
   );
 };

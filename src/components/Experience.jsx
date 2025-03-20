@@ -1,9 +1,11 @@
 import React from 'react';
 import { experience } from '../data/Experience';
 import { FaBriefcase } from 'react-icons/fa';
-
+import { Reveal, Fade } from 'react-awesome-reveal';
 const Experience = () => {
   return (
+    <Reveal triggerOnce>
+      <Fade direction="up" duration={500}>
     <div className="mt-5">
       <h2><FaBriefcase className="me-2" />Doświadczenie</h2>
       {experience.map((exp) => (
@@ -21,6 +23,8 @@ const Experience = () => {
         </div>
       ))}
     </div>
+    </Fade>
+    </Reveal>
   );
 };
 

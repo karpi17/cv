@@ -1,14 +1,14 @@
 import React from 'react';
+import { skills } from '../data/Skills';
 
 const Skills = () => {
   return (
-    <div className="panel">
-      <h2>Zdolności i umiejętności</h2>
+    <div className="mt-5">
+      <h2>Umiejętności</h2>
       <ul>
-        <li>JavaScript (React, Node.js)</li>
-        <li>HTML & CSS (Sass, Bootstrap)</li>
-        <li>Bazy danych (MySQL, MongoDB)</li>
-        {/* Dodaj inne umiejętności */}
+        {skills.map((skill) => (
+          <li key={skill.id}>{skill.name}</li>
+        ))}
       </ul>
     </div>
   );

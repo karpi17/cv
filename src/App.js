@@ -11,7 +11,7 @@ import './styles/App.css';
 
 function App() {
   return (
-    <div className="container mt-5">
+    <div className="container mt-4">
       <div className="row">
         <div className="col-md-8 offset-md-2">
           <Header />

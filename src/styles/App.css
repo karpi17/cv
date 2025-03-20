@@ -2,11 +2,13 @@
 /* 1. Reset i zmienne globalne */
 /* ==================== */
 :root {
-  --primary-color: #4CAF50; /* Główny kolor akcentów */
-  --secondary-color: #2A2A2A; /* Kolor tekstu */
-  --background-color: #F8F9FA; /* Kolor tła */
-  --card-background: #FFFFFF; /* Kolor tła kart */
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Cień domyślny */
+  --primary-color: #4CAF50;
+  --secondary-color: #2A2A2A;
+  --background-color: #F8F9FA;
+  --card-background: #FFFFFF;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --dark-bg: #121212;
+  --dark-card-bg: #1E1E1E;
 }
 
 * {
@@ -19,73 +21,72 @@ body {
   background-color: var(--background-color);
   color: var(--secondary-color);
   font-family: 'Poppins', sans-serif;
-  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* ==================== */
-/* 2. Typografia */
+/* 2. Dark Mode */
 /* ==================== */
-h1, h2, h3 {
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 600;
-  color: var(--primary-color);
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: #FFFFFF;
 }
 
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-
-p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
+body.dark-mode .card {
+  background-color: var(--dark-card-bg);
+  color: #FFFFFF;
 }
 
 /* ==================== */
-/* 3. Layout */
+/* 3. Nagłówek */
 /* ==================== */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.row {
+.header {
   display: flex;
-  flex-wrap: wrap;
-  margin: -10px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  margin-bottom: 30px;
 }
 
-.col-md-8 {
-  flex: 0 0 66.6667%;
-  max-width: 66.6667%;
-  padding: 10px;
-}
-
-.offset-md-2 {
-  margin-left: 16.6667%;
+.header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
 
 /* ==================== */
-/* 4. Komponenty */
+/* 4. Zegar cyfrowy */
 /* ==================== */
-/* Karty */
+.digital-clock {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.9);
+  color: #00FF00;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.digital-clock svg {
+  margin-right: 8px;
+}
+
+/* ==================== */
+/* 5. Karty i sekcje */
+/* ==================== */
 .card {
   background-color: var(--card-background);
   border: none;
   border-radius: 10px;
   box-shadow: var(--shadow);
-  transition: transform 0.3s, box-shadow 0.3s;
   margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
@@ -97,60 +98,8 @@ p {
   padding: 20px;
 }
 
-/* Listy */
-.list-unstyled {
-  list-style: none;
-  padding-left: 0;
-}
-
-.list-unstyled li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
-
-.list-unstyled li:last-child {
-  border-bottom: none;
-}
-
-/* Przyciski */
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
-
-/* Zegar cyfrowy */
-.digital-clock {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  background: rgba(42, 42, 42, 0.9);
-  color: var(--primary-color);
-  padding: 8px 12px;
-  border-radius: 5px;
-  font-family: 'Courier New', monospace;
-  font-size: 1.2rem;
-  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
-}
-
-.digital-clock span {
-  margin-left: 5px;
-}
-
 /* ==================== */
-/* 5. Animacje i efekty */
+/* 6. Animacje */
 /* ==================== */
 .reveal {
   opacity: 0;
@@ -162,7 +111,10 @@ p {
   opacity: 1;
   transform: translateY(0);
 }
-/* Styl dla przycisku */
+
+/* ==================== */
+/* 7. Przycisk "Do góry" */
+/* ==================== */
 .scroll-to-top {
   position: fixed;
   bottom: 30px;
@@ -171,7 +123,7 @@ p {
 }
 
 .btn-scroll {
-  background-color: #4CAF50;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 50%;
   width: 50px;
@@ -182,43 +134,59 @@ p {
   color: white;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, transform 0.3s;
+  transition: all 0.3s;
 }
 
 .btn-scroll:hover {
-  background-color: #45a049;
+  background-color: #45A049;
   transform: scale(1.1);
 }
 
-/* Animacja pojawiania się przycisku */
-.btn-scroll {
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 /* ==================== */
-/* 6. Responsywność */
+/* 8. Responsywność */
 /* ==================== */
 @media (max-width: 768px) {
-  .col-md-8 {
-    flex: 0 0 100%;
-    max-width: 100%;
+  .header {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .offset-md-2 {
-    margin-left: 0;
+  .header img {
+    margin: 0 auto 15px;
   }
 
   .digital-clock {
-    top: 10px;
-    right: 10px;
-    font-size: 1rem;
+    margin-top: 15px;
   }
+
+  .card {
+    margin-bottom: 15px;
+  }
+}
+
+/* ==================== */
+/* 9. Dodatkowe utility */
+/* ==================== */
+.text-muted {
+  color: #6C757D !important;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
 }

@@ -1,9 +1,23 @@
-import React from 'react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaLinkedin, FaGithub, FaMoon, FaSun } from 'react-icons/fa';
 import DigitalClock from './DigitalClock';
 import foto from '../zdjecia/foto.png';
 
 const Header = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') setIsDarkMode(true);
+    document.body.classList.toggle('dark-mode', savedTheme === 'dark');
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    localStorage.setItem('theme', !isDarkMode ? 'dark' : 'light');
+    document.body.classList.toggle('dark-mode', !isDarkMode);
+  };
+
   return (
     <div className="header d-flex align-items-center justify-content-between p-3 mb-4">
       <div className="d-flex align-items-center">
@@ -21,6 +35,9 @@ const Header = () => {
 
       <div className="d-flex align-items-center gap-3">
         <DigitalClock />
+        <button onClick={toggleTheme} className="theme-toggle">
+          {isDarkMode ? <FaSun /> : <FaMoon />}
+        </button>
         <div className="d-flex gap-2">
           <a href="https://linkedin.com/in/kacper-wernerowicz" target="_blank" rel="noreferrer">
             <FaLinkedin size={24} className="text-dark" />

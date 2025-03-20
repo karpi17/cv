@@ -4,7 +4,6 @@ import { FaArrowUp } from 'react-icons/fa';
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Śledź pozycję scrolla
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
@@ -13,7 +12,6 @@ const ScrollToTop = () => {
     }
   };
 
-  // Przewiń do góry
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -21,7 +19,6 @@ const ScrollToTop = () => {
     });
   };
 
-  // Dodaj event listener przy montowaniu komponentu
   useEffect(() => {
     window.addEventListener('scroll', toggleVisibility);
     return () => window.removeEventListener('scroll', toggleVisibility);

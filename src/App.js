@@ -8,7 +8,7 @@ import Certificates from './components/Certificates';
 import Languages from './components/Languages';
 import ScrollToTop from './components/ScrollToTop';
 import html2pdf from 'html2pdf.js';
-import '../styles/App.css';
+import './styles/App.css';
 
 function App() {
   const cvRef = useRef();

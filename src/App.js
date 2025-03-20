@@ -7,7 +7,7 @@ import Contact from './components/Contact';
 import Certificates from './components/Certificates';
 import Languages from './components/Languages';
 import ScrollToTop from './components/ScrollToTop';
-import './App.css';
+import './styles/App.css';
 
 function App() {
   return (

@@ -28,14 +28,15 @@ const Skills = () => {
                       <div className="d-flex align-items-center gap-2">
                         {getIcon(skill.icon)}
                         <span className="fw-bold">{skill.name}</span>
-                        <div className="ms-auto d-flex gap-1">
-                          {[...Array(5)].map((_, i) => (
+                        <div className="ms-auto d-flex flex-row gap-1">
+                           {[...Array(5)].map((_, i) => (
                             <div
-                              key={i}
-                              className={`dot ${i < skill.level ? 'filled' : 'empty'}`}
+                            key={i}
+                            className={`dot ${i < skill.level ? 'filled' : 'empty'}`}
+                            style={{ display: 'inline-block' }} // opcjonalnie, jeśli CSS nie ustawia inline
                             />
-                          ))}
-                        </div>
+                            ))}
+                          </div>
                       </div>
                       {skill.details && (
                         <div className="mt-2 text-muted small">

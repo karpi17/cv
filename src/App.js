@@ -1,3 +1,4 @@
+
 import React, { useRef } from 'react';
 import Header from './components/Header';
 import Experience from './components/Experience';
@@ -15,6 +16,14 @@ function App() {
 
   const exportToPDF = () => {
     const element = cvRef.current;
+
+    // Tymczasowo wyłącz animacje
+    const reveals = element.querySelectorAll('.reveal');
+    reveals.forEach((reveal) => {
+      reveal.style.opacity = '1';
+      reveal.style.transform = 'translateY(0)';
+    });
+
     const opt = {
       margin: [10, 10],
       filename: 'CV_Kacper_Wernerowicz.pdf',

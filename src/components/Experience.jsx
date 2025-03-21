@@ -5,17 +5,16 @@ import { Reveal, Fade } from 'react-awesome-reveal';
 
 const Experience = () => {
   return (
-    <Reveal triggerOnce>
+    <Reveal triggerOnce delay={200}>
       <Fade direction="up" duration={500}>
-        <div className="mb-5">
-          <h2 className="mb-4"><FaBriefcase className="me-2" />Doświadczenie</h2>
+        <div className="mt-4">
+          <h2><FaBriefcase className="me-2" />Doświadczenie</h2>
           {experience.map((exp) => (
             <div key={exp.id} className="card mb-3">
               <div className="card-body">
                 <h3 className="card-title">{exp.position}</h3>
-                <h4 className="card-subtitle text-muted mb-2">{exp.company}</h4>
-                <p className="text-muted">{exp.period}</p>
-                <ul className="mt-2">
+                <p className="text-muted">{exp.company} | {exp.period}</p>
+                <ul>
                   {exp.description.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
@@ -28,5 +27,4 @@ const Experience = () => {
     </Reveal>
   );
 };
-
 export default Experience;

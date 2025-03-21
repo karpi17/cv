@@ -34,19 +34,19 @@ const Header = () => {
       </div>
 
       <div className="d-flex align-items-center gap-3">
-        <DigitalClock />
-        <button onClick={toggleTheme} className="theme-toggle">
-          {isDarkMode ? <FaSun /> : <FaMoon />}
-        </button>
-        <div className="d-flex gap-2">
-          <a href="https://linkedin.com/in/kacper-wernerowicz" target="_blank" rel="noreferrer">
-            <FaLinkedin size={24} className="text-dark" />
-          </a>
-          <a href="https://github.com/karpi17" target="_blank" rel="noreferrer">
-            <FaGithub size={24} className="text-dark" />
-          </a>
-        </div>
-      </div>
+  <DigitalClock />
+  <button onClick={toggleTheme} className="theme-toggle">
+    {isDarkMode ? <FaSun /> : <FaMoon />}
+  </button>
+  <div className="d-flex gap-2">
+    <a href="https://linkedin.com/in/kacper-wernerowicz" target="_blank" rel="noreferrer">
+      <FaLinkedin size={24} className="text-dark" />
+    </a>
+    <a href="https://github.com/karpi17" target="_blank" rel="noreferrer">
+      <FaGithub size={24} className="text-dark" />
+    </a>
+  </div>
+</div>
     </div>
   );
 };

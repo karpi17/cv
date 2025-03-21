@@ -26,12 +26,12 @@ const ScrollToTop = () => {
 
   return (
     <div className="scroll-to-top">
-      {isVisible && (
-        <button onClick={scrollToTop} className="btn-scroll">
-          <FaArrowUp />
-        </button>
-      )}
-    </div>
+    {isVisible && (
+      <button onClick={scrollToTop} className="btn-scroll">
+        <FaArrowUp />
+      </button>
+    )}
+  </div>
   );
 };
 

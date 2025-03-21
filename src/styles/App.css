@@ -36,22 +36,45 @@ body.dark-mode {
   box-shadow: var(--shadow);
   padding: 20px;
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.header img {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 /* Zegar */
 .digital-clock {
-  background: rgba(0, 0, 0, 0.9);
-  color: #00FF00;
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-family: 'Courier New', monospace;
-  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
+  background: var(--card-background);
+  color: var(--secondary-color);
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  border: 2px solid var(--primary-color);
+  box-shadow: 
+    0 2px 8px rgba(76, 175, 80, 0.15),
+    inset 0 1px 2px rgba(76, 175, 80, 0.1);
+  transition: all 0.3s ease;
 }
 
+.digital-clock:hover {
+  transform: scale(1.02);
+}
+
+body.dark-mode .digital-clock {
+  border-color: rgba(76, 175, 80, 0.5);
+  box-shadow: 
+    0 2px 12px rgba(76, 175, 80, 0.2),
+    inset 0 1px 2px rgba(76, 175, 80, 0.05);
+}
 /* Karty */
 .card {
   background-color: var(--card-background);
@@ -71,54 +94,6 @@ body.dark-mode {
   padding: 20px;
 }
 
-/* Listy */
-.list-unstyled {
-  list-style: none;
-  padding-left: 0;
-}
-
-.list-unstyled li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
-
-.list-unstyled li:last-child {
-  border-bottom: none;
-}
-
-/* Animacje */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Przycisk PDF */
-.pdf-button {
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
-  z-index: 1000;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 25px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s;
-}
-
-.pdf-button:hover {
-  background-color: #45a049;
-  transform: translateY(-2px);
-}
-
 /* Przycisk motywu */
 .theme-toggle {
   background: none;
@@ -131,7 +106,7 @@ body.dark-mode {
 
 /* Przycisk "Do góry" */
 .btn-scroll {
-  background-color: #4CAF50;
+  background-color: var(--primary-color) !important;
   border: none;
   border-radius: 50%;
   width: 50px;
@@ -142,11 +117,15 @@ body.dark-mode {
   color: white;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, transform 0.3s;
+  transition: all 0.3s;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
 }
 
 .btn-scroll:hover {
-  background-color: #45a049;
+  background-color: #45a049 !important;
   transform: scale(1.1);
 }
 
@@ -155,31 +134,61 @@ body.dark-mode {
   .header {
     flex-direction: column;
     text-align: center;
-  }
-
-  .header img {
-    margin: 0 auto 15px;
+    gap: 15px;
   }
 
   .digital-clock {
-    margin-top: 15px;
-  }
-
-  .card {
-    margin-bottom: 15px;
+    width: 100%;
+    justify-content: center;
   }
 }
+/* Progress Bar */
+.progress-bar-wrapper {
+  width: 150px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
 
-/* Druk (PDF) */
-@media print {
-  .scroll-to-top,
-  .pdf-button,
-  .theme-toggle {
-    display: none !important;
-  }
+.progress-bar-fill {
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
 
-  .card {
-    box-shadow: none !important;
-    border: 1px solid #ddd !important;
-  }
+/* Dla dark mode */
+body.dark-mode .progress-bar-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+}
+/* Kropki poziomu zaawansowania */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.dot.filled {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.dot.empty {
+  background: #ddd;
+  opacity: 0.5;
+}
+
+/* Karty umiejętności miękkich */
+.skill-card {
+  background: rgba(76, 175, 80, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(76, 175, 80, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  background: rgba(76, 175, 80, 0.08);
 }

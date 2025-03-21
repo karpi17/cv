@@ -20,14 +20,6 @@ const Contact = () => {
                   <FaPhone className="me-2" />
                   {contact.phone}
                 </li>
-                <li className="mb-3">
-                  <FaBirthdayCake className="me-2" />
-                  {contact.birthDate}
-                </li>
-                <li className="mb-3">
-                  <FaMapMarker className="me-2" />
-                  {contact.city}
-                </li>
               </ul>
             </div>
           </div>

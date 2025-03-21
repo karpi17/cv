@@ -8,7 +8,7 @@ export const skills = [
       { name: "C#", level: 4, icon: "FaMicrosoft" },
       { name: "C++", level: 3, icon: "FaCode" },
       { name: "JavaScript", level: 4, icon: "FaJsSquare" },
-      { name: "PHP", level: 4, icon: "FaCode" },
+      { name: "PHP", level: 4, icon: "FaPhp" },
     ]
   },
   
@@ -27,7 +27,7 @@ export const skills = [
     category: "Narzędzia developerskie",
     items: [
       { name: "Git", level: 5, icon: "FaGithub" },
-      { name: "PHP Storm", level: 3, icon: "FaJet" },
+      { name: "PHP Storm", level: 3, icon: "FaPHP" },
     ]
   }
 ];

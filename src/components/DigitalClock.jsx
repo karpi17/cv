@@ -5,25 +5,14 @@ const DigitalClock = () => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
+    const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (date) => {
-    return date.toLocaleTimeString('pl-PL', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    });
-  };
-
   return (
-    <div className="digital-clock">
+    <div className="digital-clock" aria-label="Zegar cyfrowy">
       <FaClock className="me-2" />
-      <span>{formatTime(time)}</span>
+      <span>{time.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
     </div>
   );
 };

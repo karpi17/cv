@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaMoon, FaSun,FaBirthdayCake, FaMapMarker } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaMoon, FaSun, FaBirthdayCake, FaMapMarker } from 'react-icons/fa';
 import DigitalClock from './DigitalClock';
 import foto from '../zdjecia/foto.png';
 
@@ -31,14 +31,18 @@ const Header = () => {
         <div>
           <h1 className="mb-0">Kacper Wernerowicz</h1>
           <p className="text-muted mb-0">Technik programista</p>
-          <p>  <FaBirthdayCake className="me-2" /> 12.10.2005</p>
-          <p> <FaMapMarker className="me-2" /> Elbląg</p>
+          <p><FaBirthdayCake className="me-2" />12.10.2005</p>
+          <p><FaMapMarker className="me-2" />Elbląg</p>
         </div>
       </div>
 
       <div className="d-flex align-items-center gap-3">
         <DigitalClock />
-        <button onClick={toggleTheme} className="theme-toggle">
+        <button
+          onClick={toggleTheme}
+          className="theme-toggle"
+          aria-label={isDarkMode ? "Włącz tryb jasny" : "Włącz tryb ciemny"}
+        >
           {isDarkMode ? <FaSun /> : <FaMoon />}
         </button>
         <div className="d-flex gap-2">

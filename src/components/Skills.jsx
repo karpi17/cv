@@ -2,10 +2,21 @@ import React from 'react';
 import { skills, softSkills } from '../data/Skills';
 import { Reveal, Fade } from 'react-awesome-reveal';
 import * as FaIcons from 'react-icons/fa';
+import * as DiIcons from 'react-icons/di';
+import * as SiIcons from 'react-icons/si';
+
+const iconLibraries = {
+  Fa: FaIcons,
+  Di: DiIcons,
+  Si: SiIcons,
+};
 
 const getIcon = (iconName) => {
-  const IconComponent = FaIcons[iconName];
-  return IconComponent ? <IconComponent /> : <FaIcons.FaQuestionCircle />; // Fallback
+  if (!iconName) return <FaIcons.FaQuestionCircle />;
+  const prefix = iconName.slice(0, 2);
+  const icons = iconLibraries[prefix];
+  const IconComponent = icons ? icons[iconName] : null;
+  return IconComponent ? <IconComponent /> : <FaIcons.FaQuestionCircle />;
 };
 
 

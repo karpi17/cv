@@ -1,6 +1,6 @@
 import React from 'react';
 import { contact } from '../data/contact';
-import { FaEnvelope, FaPhone, FaBirthdayCake, FaMapMarker } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarker } from 'react-icons/fa';
 import { Reveal, Fade } from 'react-awesome-reveal';
 
 const Contact = () => {

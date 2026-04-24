@@ -17,5 +17,3 @@ Profesjonalne portfolio programisty.
 ![Bootstrap](https://img.shields.io/badge/-Bootstrap-7952B3?logo=bootstrap)
 ![Netlify](https://img.shields.io/badge/-Netlify-00C7B7?logo=netlify)
 
-## 📬 Kontakt
-kacper.wernerowicz05@gmail.com| [+48 721 449 418](tel:+48123456789)

@@ -3,11 +3,11 @@ export const experience = [
     id: 1,
     company: "Cinemacity Polska Sp. z o.o.",
     position: "Pracownik kina",
-    period: "02.2025 – obecnie", 
+    period: "02.2025 – obecnie",
     description: [
-      "Obsługa klienta.",
-      "Dbanie o zakład pracy.",
-      "Obsługa kasy fiskalnej.",
+      "Bezpośrednia obsługa klientów w dynamicznym, wielozadaniowym środowisku.",
+      "Obsługa systemów kasowych (POS) — rozliczenia transakcji gotówkowych i bezgotówkowych.",
+      "Utrzymanie standardów operacyjnych i sanitarnych obiektu zgodnie z procedurami firmy.",
     ],
   },
   {
@@ -16,18 +16,21 @@ export const experience = [
     position: "Pracownik restauracji",
     period: "11.2023 – 02.2025 (1 rok 4 mies.)",
     description: [
-      "Obsługa klienta.",
-      "Praca zgodnie z standardami żywieniowymi.",
-      "Dbanie o porządek na terenie restauracji.",
+      "Bezpośrednia obsługa klientów z zachowaniem standardów jakości obsługi.",
+      "Realizacja zamówień zgodnie z procedurami HACCP i normami żywieniowymi.",
+      "Dbanie o czystość i porządek na stanowisku pracy.",
     ],
   },
   {
     id: 3,
-    company: "Furgonetka Spółka z ograniczoną odpowiedzialnością Sp. k.",
-    position: "Praktykant",
+    company: "Furgonetka Sp. z o.o. Sp. k.",
+    position: "Praktykant — PHP Developer",
     period: "09.2023 – 10.2023",
     description: [
-      "Tworzenie nowych funkcjonalności do aplikacji firmowej.",
+      "Rozwój nowych funkcjonalności w aplikacji webowej (PHP) w środowisku PHPStorm.",
+      "Implementacja i utrzymanie testów jednostkowych (unit tests) kluczowych modułów.",
+      "Praca z mockowanymi danymi w środowisku deweloperskim.",
+      "Tworzenie dokumentacji technicznej wdrożonych rozwiązań.",
     ],
   },
   {
@@ -36,8 +39,8 @@ export const experience = [
     position: "Praktykant",
     period: "10.2022 – 11.2022",
     description: [
-      "Obsługa klienta.",
-      "Dbanie o zakład pracy.",
+      "Bezpośrednia obsługa klientów w branży rozrywkowej.",
+      "Wsparcie w codziennej organizacji pracy obiektu.",
     ],
   },
 ];

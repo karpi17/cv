@@ -1,60 +1,92 @@
 import React, { useState, useEffect } from 'react';
-import { FaLinkedin, FaGithub, FaMoon, FaSun, FaBirthdayCake, FaMapMarker } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaMoon, FaSun, FaBirthdayCake, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 import DigitalClock from './DigitalClock';
+import { contact } from '../data/contact';
 import foto from '../zdjecia/foto.png';
 
 const Header = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme === 'dark';
-    setIsDarkMode(isDark);
-    document.body.classList.toggle('dark-mode', isDark);
-  }, []);
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
 
   const toggleTheme = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    localStorage.setItem('theme', newMode ? 'dark' : 'light');
-    document.body.classList.toggle('dark-mode', newMode);
+    setIsDarkMode((prev) => !prev);
   };
 
   return (
-    <div className="header">
-      <div className="d-flex align-items-center gap-3">
-        <img
-          src={foto}
-          alt="Kacper Wernerowicz"
-          className="rounded-circle"
-        />
-        <div>
-          <h1 className="mb-0">Kacper Wernerowicz</h1>
-          <p className="text-muted mb-0">Technik programista</p>
-          <p><FaBirthdayCake className="me-2" />12.10.2005</p>
-          <p><FaMapMarker className="me-2" />Elbląg</p>
-        </div>
-      </div>
+    <header className="card header-card mb-4">
+      <div className="card-body">
+        <div className="row align-items-center">
+          {/* Lewa strona — zdjęcie + dane */}
+          <div className="col-md-8">
+            <div className="d-flex align-items-center gap-4">
+              <img
+                src={foto}
+                alt="Zdjęcie profilowe — Kacper Wernerowicz"
+                className="rounded-circle header-photo"
+              />
+              <div>
+                <h1 className="h2 fw-bold mb-1">Kacper Wernerowicz</h1>
+                <p className="text-muted mb-2 fs-5">Technik programista</p>
+                <div className="d-flex flex-wrap gap-3 text-muted small">
+                  <span className="d-flex align-items-center gap-1">
+                    <FaBirthdayCake size={14} />
+                    12.10.2005
+                  </span>
+                  <span className="d-flex align-items-center gap-1">
+                    <FaMapMarkerAlt size={14} />
+                    Elbląg
+                  </span>
+                  <span className="d-flex align-items-center gap-1">
+                    <FaEnvelope size={14} />
+                    {contact.email}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <div className="d-flex align-items-center gap-3">
-        <DigitalClock />
-        <button
-          onClick={toggleTheme}
-          className="theme-toggle"
-          aria-label={isDarkMode ? "Włącz tryb jasny" : "Włącz tryb ciemny"}
-        >
-          {isDarkMode ? <FaSun /> : <FaMoon />}
-        </button>
-        <div className="d-flex gap-2">
-          <a href="https://linkedin.com/in/kacper-wernerowicz" target="_blank" rel="noreferrer">
-            <FaLinkedin size={24} />
-          </a>
-          <a href="https://github.com/karpi17" target="_blank" rel="noreferrer">
-            <FaGithub size={24} />
-          </a>
+          {/* Prawa strona — akcje */}
+          <div className="col-md-4 mt-3 mt-md-0">
+            <div className="d-flex flex-column align-items-md-end gap-3">
+              <DigitalClock />
+              <div className="d-flex align-items-center gap-3">
+                <button
+                  onClick={toggleTheme}
+                  className="btn btn-sm btn-outline-secondary"
+                  aria-label={isDarkMode ? "Włącz tryb jasny" : "Włącz tryb ciemny"}
+                >
+                  {isDarkMode ? <FaSun /> : <FaMoon />}
+                </button>
+                <a
+                  href="https://linkedin.com/in/kacper-wernerowicz"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-sm btn-outline-primary"
+                  aria-label="Profil LinkedIn"
+                >
+                  <FaLinkedin size={18} />
+                </a>
+                <a
+                  href="https://github.com/karpi17"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-sm btn-outline-secondary"
+                  aria-label="Profil GitHub"
+                >
+                  <FaGithub size={18} />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

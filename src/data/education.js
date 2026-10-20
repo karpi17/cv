@@ -2,9 +2,9 @@ export const education = [
   {
     id: 1,
     school: "Akademia Nauk Stosowanych w Elblągu",
-    specialization: "Informatyka stosowana",
-    period: "10.2025 – obecnie",
-    level: "Wyższe",
+    specialization: "Informatyka stosowana (studia inżynierskie)",
+    period: "10.2025 – 2029 (planowo)",
+    level: "Wyższe (w trakcie)",
   },
   {
     id: 2,

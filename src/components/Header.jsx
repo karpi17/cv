@@ -32,7 +32,7 @@ const Header = () => {
               />
               <div>
                 <h1 className="h2 fw-bold mb-1">Kacper Wernerowicz</h1>
-                <p className="text-muted mb-2 fs-5">Technik programista</p>
+                <p className="text-muted mb-2 fs-5">Student Informatyki | Lider Zespołu &amp; Programista</p>
                 <div className="d-flex flex-wrap gap-3 text-muted small">
                   <span className="d-flex align-items-center gap-1">
                     <FaBirthdayCake size={14} />

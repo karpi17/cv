@@ -10,11 +10,11 @@ export const projects = [
   },
   {
     id: 2,
-    title: "F1 UDP Telemetry Engine",
+    title: "F1 Real-Time Telemetry & AI Race Engineer",
     description:
-      "Aplikacja w Pythonie do nasłuchiwania i analizy strumienia telemetrii UDP w czasie rzeczywistym (do 60 Hz). Przetwarza pakiety binarne, liczy zużycie opon, bilans energii ERS, deltę czasową w sektorach oraz kalkuluje okna zjazdów do alei serwisowej.",
-    tech: ["Python", "Sockets UDP", "Real-Time Data", "Multithreading"],
-    link: "https://github.com/karpi17",
+      "Asynchroniczny system telemetryczny w Pythonie nasłuchujący strumienia UDP (port 20777, do 60 Hz). Deserializuje pakiety binarne, monitoruje zużycie opon (koło po kole), bilans energii ERS, deltę mikro-sektorów, stan uszkodzeń 22 bolidów oraz symuluje strategię pit-stopów.",
+    tech: ["Python 3.12", "UDP Sockets", "Event-Driven", "Real-Time Data", "Multithreading"],
+    link: "https://github.com/karpi17/f1-telemetry-engineer",
     live: null,
   },
   {
